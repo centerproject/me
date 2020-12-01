@@ -1,0 +1,50 @@
+/*
+* http://rastikerdar.github.io/vazir-font
+* https://github.com/rastikerdar/vazir-font
+* v21.2.0
+*/
+
+@font-face {
+    font-family: 'vazir';
+    src: url('vazir/Vazir.eot');
+    src: url('vazir/Vazir.eot?#iefix') format('embedded-opentype'),
+    url('vazir/Vazir.woff') format('woff'),
+    url('vazir/Vazir.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'vazir-bold';
+    src: url('vazir/bold/Vazir-Bold.eot');
+    src: url('vazir/bold/Vazir-Bold.eot?#iefix') format('embedded-opentype'),
+    url('vazir/bold/Vazir-Bold.woff') format('woff'),
+    url('vazir/bold/Vazir-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'vazir-light';
+    src: url('vazir/light/Vazir-Light.eot');
+    src: url('vazir/light/Vazir-Light.eot?#iefix') format('embedded-opentype'),
+    url('vazir/light/Vazir-Light.woff') format('woff'),
+    url('vazir/light/Vazir-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'vazir-medium';
+    src: url('vazir/medium/Vazir-Medium.eot');
+    src: url('vazir/medium/Vazir-Medium.eot?#iefix') format('embedded-opentype'),
+    url('vazir/medium/Vazir-Medium.woff') format('woff'),
+    url('vazir/medium/Vazir-Medium.ttf') format('truetype');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'vazir-thin';
+    src: url('vazir/thin/Vazir-Thin.eot');
+    src: url('vazir/thin/Vazir-Thin.eot?#iefix') format('embedded-opentype'),
+    url('vazir/thin/Vazir-Thin.woff') format('woff'),
+    url('vazir/thin/Vazir-Thin.ttf') format('truetype');
+    font-weight: 300;
+}
