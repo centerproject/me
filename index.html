@@ -1,267 +1,1324 @@
-<!doctype html>
-<html dir="rtl" lang="fa">
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 <head>
-    <title>طراحی سایت</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="طراحی و توسعه اپلیکیشن و وبسایت با مدرن‌ترین متدها."/>
-    <meta name="keywords"
-          content="centerproject, php, java,  web, website, laravel, aspx, طراحی سایت, وبسایت, فروشگاه اینترنتی, طراحی سایت "/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="favicon.png">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Center Project | طراحی و توسعه وب سایت با PHP</title>
+    <meta name="description"
+          content="Center Project - شرکت طراحی و توسعه وب سایت با PHP. ارائه دهنده خدمات طراحی سایت، برنامه نویسی PHP، توسعه فروشگاه آنلاین و سیستم های مدیریت محتوا."/>
+    <meta name="author" content="Center Project"/>
 
-    <!-- Font -->
-    <link href="fonts/vazir.css?v=0.1" type="text/css" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <link href="assets/plugins/css/bootstrap.min.css?v=0.1" type="text/css" rel="stylesheet">
-    <!-- Animate CSS-->
-    <link href="assets/plugins/css/animate.css?v=0.1" type="text/css" rel="stylesheet">
-    <!-- Owl Carousel CSS-->
-    <link href="assets/plugins/css/owl.css?v=0.1" type="text/css" rel="stylesheet">
-    <!-- Fancybox-->
-    <link href="assets/plugins/css/jquery.fancybox.min.css?v=0.1" type="text/css" rel="stylesheet">
-    <!-- Custom CSS-->
-    <link href="assets/css/styles.css?v=0.1" type="text/css" rel="stylesheet">
-    <link href="assets/css/responsive.css?v=0.1" type="text/css" rel="stylesheet">
+    <meta property="og:title" content="Center Project | طراحی و توسعه وب سایت با PHP"/>
+    <meta property="og:description"
+          content="Center Project - شرکت طراحی و توسعه وب سایت با PHP. ارائه دهنده خدمات طراحی سایت، برنامه نویسی PHP، توسعه فروشگاه آنلاین و سیستم های مدیریت محتوا."/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"/>
 
-    <script type="text/javascript"
-            src="https://smartarget.online/loader.js?u=ce2f1ab2e88fdd0f9b735009d63d3c08c12a4846"></script>
-    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="61c28d00-451a-4671-b732-34a35cf81731";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@centerproject"/>
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"/>
+
+    <!-- Persian Font Vazirmatn -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet"
+          type="text/css"/>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#003366',
+                        secondary: '#2bbdb5',
+                        'primary-foreground': '#f8fafc',
+                        'secondary-foreground': '#f8fafc',
+                    },
+                    fontFamily: {
+                        sans: ['Vazirmatn', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            'from': {opacity: '0', transform: 'translateY(20px)'},
+                            'to': {opacity: '1', transform: 'translateY(0)'}
+                        },
+                        float: {
+                            '0%, 100%': {transform: 'translateY(0)'},
+                            '50%': {transform: 'translateY(-10px)'}
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        .delay-100 {
+            animation-delay: 100ms;
+        }
+
+        .delay-200 {
+            animation-delay: 200ms;
+        }
+
+        .delay-300 {
+            animation-delay: 300ms;
+        }
+
+        .delay-400 {
+            animation-delay: 400ms;
+        }
+    </style>
 </head>
-<body class="white-vertion black-bg mh-rtl">
 
-<div class="section-loader">
-    <div class="loader">
-        <div></div>
-        <div></div>
-    </div>
-</div>
-
-<header class="black-bg mh-header mh-fixed-nav nav-scroll mh-xs-mobile-nav" id="mh-header">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <nav class="navbar navbar-expand-lg mh-nav nav-btn">
-                <a class="navbar-brand" href="/">
-                    <h2>مرکز پروژه‌ها</h2>
+<body class="bg-white text-gray-800">
+<!-- Navbar -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+    <div class="container mx-auto px-4 py-3">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="#" class="text-xl font-bold text-primary">
+                    Center<span class="text-secondary">Project</span>
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon icon"></span>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-gray-700 hover:text-secondary transition-colors">
+                    خانه
+                </a>
+                <a href="#services" class="text-gray-700 hover:text-secondary transition-colors">
+                    خدمات
+                </a>
+                <a href="#portfolio" class="text-gray-700 hover:text-secondary transition-colors">
+                    نمونه کارها
+                </a>
+                <a href="#about" class="text-gray-700 hover:text-secondary transition-colors">
+                    درباره ما
+                </a>
+                <a href="#contact">
+                    <button class="bg-secondary hover:bg-secondary/90 text-white px-4 py-2 rounded">تماس با ما</button>
+                </a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <div class="md:hidden">
+                <button
+                        id="mobile-menu-button"
+                        class="text-gray-700 hover:text-secondary focus:outline-none"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="menu-icon">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="x-icon hidden">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="home-rtl-w.html#mh-home">خانه</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="home-rtl-w.html#mh-about">درباره‌ی</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="home-rtl-w.html#mh-service">خدمات</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="home-rtl-w.html#mh-contact">تماس‌با‌ما</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            </div>
         </div>
     </div>
-</header>
-<section class="mh-home" id="mh-home">
-    <div class="home-ovimg">
-        <div class="container">
-            <div class="row xs-column-reverse section-separator vertical-middle-content home-padding">
-                <div class="col-sm-6">
-                    <div class="mh-header-info">
-                        <div class="mh-promo">
-                            <span>به مرکز پروژه‌های برنامه‌نویسی خوش آمدید</span>
-                        </div>
-                        <h3>طراحی سایت، طراحی اپلیکیشن</h3>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden px-4 py-3 bg-white shadow-lg hidden animate-fade-in">
+        <div class="flex flex-col space-y-4 rtl">
+            <a
+                    href="#home"
+                    class="text-gray-700 hover:text-secondary transition-colors py-2"
+            >
+                خانه
+            </a>
+            <a
+                    href="#services"
+                    class="text-gray-700 hover:text-secondary transition-colors py-2"
+            >
+                خدمات
+            </a>
+            <a
+                    href="#portfolio"
+                    class="text-gray-700 hover:text-secondary transition-colors py-2"
+            >
+                نمونه کارها
+            </a>
+            <a
+                    href="#about"
+                    class="text-gray-700 hover:text-secondary transition-colors py-2"
+            >
+                درباره ما
+            </a>
+            <a
+                    href="#contact"
+                    class="inline-block"
+            >
+                <button class="bg-secondary hover:bg-secondary/90 text-white w-full px-4 py-2 rounded">
+                    تماس با ما
+                </button>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-gradient-to-b from-white to-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="w-full md:w-1/2 text-center md:text-right mb-12 md:mb-0 md:order-2">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight animate-fade-in">
+                        <span class="block">طراحی و توسعه</span>
+                        <span class="block text-secondary mt-2">وب سایت‌های حرفه‌ای</span>
+                    </h1>
+                    <p class="mt-6 text-gray-600 text-lg md:text-xl max-w-xl mx-auto md:mr-0 md:ml-auto animate-fade-in delay-100">
+                        ما به شما کمک می‌کنیم تا با استفاده از PHP و فناوری‌های مدرن، وب‌سایت‌های قدرتمند و کاربرپسند
+                        بسازید.
+                    </p>
+
+                    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center md:justify-end gap-4 animate-fade-in delay-200">
+                        <button class="bg-secondary hover:bg-secondary/90 text-white w-full sm:w-auto px-5 py-3 rounded font-medium">
+                            شروع پروژه
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="inline-block mr-2 rtl:rotate-180">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
+                        <button class="border border-gray-300 hover:border-gray-400 text-gray-700 w-full sm:w-auto px-5 py-3 rounded font-medium">
+                            نمونه کارها
+                        </button>
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="hero-img">
-                        <div class="img-border">
-                            <img src="img/centerproject-circle-logo.png" alt="" class="img-fluid">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="mh-about" id="mh-about">
-    <div class="container">
-        <div class="row section-separator">
-            <div class="col-sm-12 col-md-6">
-                <div class="mh-about-img shadow-2">
-                    <img src="img/ab-img.png" alt="" class="img-fluid">
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-6">
-                <div class="mh-about-inner">
-                    <h2>زبان‌های پشتیبانی</h2>
-                    <p>طراحی سایت، طراحی افزونه و انجام اپلیکیشن</p>
-                    <div class="mh-about-tag">
-                        <ul>
-                            <li><span>php,laravel</span></li>
-                            <li><span>android</span></li>
-                            <li><span>wordpress</span></li>
-                            <li><span>prestashop</span></li>
-                            <li><span>magento</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="mh-service" id="mh-service">
-    <div class="container">
-        <div class="row section-separator">
-            <div class="col-sm-12 text-center section-title">
-                <h2>خدمات</h2>
-            </div>
-            <div class="col-sm-4">
-                <div class="mh-service-item shadow-1 dark-bg">
-                    <i class="fa fa-bullseye purple-color"></i>
-                    <h3>طراحی سایت</h3>
-                    <p>
-                        طراحی سایت با پیشرفته‌ترین تکنولوژی‌های روز.
-                        <br/>
-                        طراحی انواع سایت‌های فروشگاهی، خبری، شخصی و غیره.
-                        <br/><br/><br/><br/>
-                    </p>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="mh-service-item shadow-1 dark-bg">
-                    <i class="fa fa-code iron-color"></i>
-                    <h3>طراحی اپلیکیشن</h3>
-                    <p>
-                        طراحی اپلیکیشن سازگار با وبسایت‌ شما.
-                        <br/><br/><br/><br/><br/><br/>
-                    </p>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="mh-service-item shadow-1 dark-bg">
-                    <i class="fa fa-object-ungroup sky-color"></i>
-                    <h3>طراحی افزونه</h3>
-                    <p>
-                        طراحی افزونه‌های وردپرس، مجنتو، پروستاشاپ.
-                        <br/><br/><br/><br/><br/><br/>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<footer class="mh-footer" id="mh-contact">
-    <div class="map-image image-bg">
-        <div class="container">
-            <div class="row section-separator">
-                <div class="col-sm-12 section-title">
-                    <h3>تماس با ما</h3>
-                </div>
-                <div class="col-sm-12 mh-footer-address">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-6">
-                            <div class="mh-address-footer-item dark-bg shadow-1">
-                                <div class="each-icon">
-                                    <i class="fa fa-envelope-o"></i>
+
+                <div class="w-full md:w-1/2 md:order-1 animate-fade-in delay-300">
+                    <div class="relative">
+                        <div class="absolute -top-16 -left-16 w-64 h-64 bg-secondary/10 rounded-full filter blur-3xl opacity-70"></div>
+                        <div class="absolute -bottom-20 -right-20 w-72 h-72 bg-primary/10 rounded-full filter blur-3xl opacity-70"></div>
+
+                        <div class="relative rounded-2xl bg-white p-6 shadow-lg border border-gray-100 animate-float">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-gray-50 p-4 rounded-lg flex flex-col items-center text-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                         stroke-linejoin="round" class="text-secondary mb-3">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="3" y1="9" x2="21" y2="9"></line>
+                                        <line x1="9" y1="21" x2="9" y2="9"></line>
+                                    </svg>
+                                    <h3 class="font-semibold">طراحی سایت</h3>
+                                    <p class="text-sm text-gray-500 mt-1">رابط کاربری جذاب</p>
                                 </div>
-                                <div class="each-info">
-                                    <h4>پست الکترونیکی</h4>
-                                    <a href="mailto:yourmail@email.com">alireza.mohammadi.1990@gmail.com</a>
+                                <div class="bg-gray-50 p-4 rounded-lg flex flex-col items-center text-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                         stroke-linejoin="round" class="text-secondary mb-3">
+                                        <polyline points="16 18 22 12 16 6"></polyline>
+                                        <polyline points="8 6 2 12 8 18"></polyline>
+                                    </svg>
+                                    <h3 class="font-semibold">برنامه نویسی PHP</h3>
+                                    <p class="text-sm text-gray-500 mt-1">کدنویسی بهینه</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg flex flex-col items-center text-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                         stroke-linejoin="round" class="text-secondary mb-3">
+                                        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                                    </svg>
+                                    <h3 class="font-semibold">پایگاه داده</h3>
+                                    <p class="text-sm text-gray-500 mt-1">مدیریت داده‌ها</p>
+                                </div>
+                                <div class="bg-primary/5 p-4 rounded-lg flex flex-col items-center text-center">
+                                    <div class="font-bold text-xl text-primary">+۵۰</div>
+                                    <p class="text-sm text-gray-500 mt-1">پروژه موفق</p>
                                 </div>
                             </div>
+
+                            <div class="mt-4 p-3 bg-secondary/5 rounded-lg text-center">
+                                <p class="text-sm font-medium text-secondary">سریع، مطمئن و قابل اعتماد</p>
+                            </div>
                         </div>
-                        <div class="col-sm-12 col-md-6">
-                            <div class="mh-address-footer-item dark-bg shadow-1">
-                                <div class="each-icon">
-                                    <i class="fa fa-phone"></i>
-                                </div>
-                                <div class="each-info">
-                                    <h4>شماره‌های تماس</h4>
-                                    <a href="callto:6711 944 936 (98+)">6711 944 936 (98+)</a>
-                                    <br>
-                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary">خدمات ما</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+                    ما خدمات جامع طراحی و توسعه وب را با تمرکز بر PHP ارائه می‌دهیم تا نیازهای کسب و کار شما را برآورده
+                    سازیم
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="border border-gray-200 hover:border-secondary/50 hover:shadow-md transition-all duration-300 rounded-lg">
+                    <div class="p-6 pb-2">
+                        <div class="mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="text-secondary">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="3" y1="9" x2="21" y2="9"></line>
+                                <line x1="9" y1="21" x2="9" y2="9"></line>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold">طراحی سایت</h3>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <p class="text-gray-600 text-sm">
+                            طراحی رابط کاربری جذاب و کاربرپسند با تمرکز بر تجربه کاربری عالی
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="border border-gray-200 hover:border-secondary/50 hover:shadow-md transition-all duration-300 rounded-lg">
+                    <div class="p-6 pb-2">
+                        <div class="mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="text-secondary">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold">توسعه PHP</h3>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <p class="text-gray-600 text-sm">
+                            کدنویسی حرفه‌ای با PHP و فریم‌ورک‌های مدرن برای سایت‌های پویا
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="border border-gray-200 hover:border-secondary/50 hover:shadow-md transition-all duration-300 rounded-lg">
+                    <div class="p-6 pb-2">
+                        <div class="mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="text-secondary">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold">مدیریت پایگاه داده</h3>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <p class="text-gray-600 text-sm">
+                            طراحی و بهینه‌سازی پایگاه‌های داده با MySQL برای عملکرد بهتر
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="border border-gray-200 hover:border-secondary/50 hover:shadow-md transition-all duration-300 rounded-lg">
+                    <div class="p-6 pb-2">
+                        <div class="mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="text-secondary">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold">طراحی واکنش‌گرا</h3>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <p class="text-gray-600 text-sm">
+                            ایجاد سایت‌های سازگار با تمامی دستگاه‌ها از موبایل تا دسکتاپ
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="border border-gray-200 hover:border-secondary/50 hover:shadow-md transition-all duration-300 rounded-lg">
+                    <div class="p-6 pb-2">
+                        <div class="mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="text-secondary">
+                                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold">میزبانی وب</h3>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <p class="text-gray-600 text-sm">
+                            مشاوره و راه‌اندازی سرور و میزبانی مطمئن برای وب‌سایت شما
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="border border-gray-200 hover:border-secondary/50 hover:shadow-md transition-all duration-300 rounded-lg">
+                    <div class="p-6 pb-2">
+                        <div class="mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="text-secondary">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold">امنیت وب</h3>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <p class="text-gray-600 text-sm">
+                            اجرای استانداردهای امنیتی برای محافظت از سایت در برابر حملات
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 7 -->
+                <div class="border border-gray-200 hover:border-secondary/50 hover:shadow-md transition-all duration-300 rounded-lg">
+                    <div class="p-6 pb-2">
+                        <div class="mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="text-secondary">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold">بهینه‌سازی SEO</h3>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <p class="text-gray-600 text-sm">
+                            بهبود رتبه سایت در موتورهای جستجو برای افزایش بازدیدکننده
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 8 -->
+                <div class="border border-gray-200 hover:border-secondary/50 hover:shadow-md transition-all duration-300 rounded-lg">
+                    <div class="p-6 pb-2">
+                        <div class="mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="text-secondary">
+                                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                                <rect x="9" y="9" width="6" height="6"></rect>
+                                <line x1="9" y1="1" x2="9" y2="4"></line>
+                                <line x1="15" y1="1" x2="15" y2="4"></line>
+                                <line x1="9" y1="20" x2="9" y2="23"></line>
+                                <line x1="15" y1="20" x2="15" y2="23"></line>
+                                <line x1="20" y1="9" x2="23" y2="9"></line>
+                                <line x1="20" y1="14" x2="23" y2="14"></line>
+                                <line x1="1" y1="9" x2="4" y2="9"></line>
+                                <line x1="1" y1="14" x2="4" y2="14"></line>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold">بهینه‌سازی عملکرد</h3>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <p class="text-gray-600 text-sm">
+                            افزایش سرعت بارگذاری و بهبود کارایی سایت برای تجربه بهتر کاربران
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary">نمونه کارها</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+                    نگاهی به برخی از پروژه‌های اخیر ما بیندازید. ما به طراحی و توسعه وب‌سایت‌های سفارشی مطابق با نیاز
+                    مشتریان افتخار می‌کنیم.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
+                <!-- Project 1 -->
+                <div class="col-span-1 md:col-span-2 lg:col-span-2 overflow-hidden group hover:shadow-lg transition-all duration-300 rounded-lg border border-gray-200">
+                    <div class="relative overflow-hidden h-64">
+                        <img
+                                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+                                alt="فروشگاه آنلاین"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div class="absolute inset-0 bg-primary/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-secondary text-primary px-3 py-1 rounded text-sm font-medium">
+                                مشاهده جزئیات
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="inline-block ml-2 h-4 w-4">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-secondary font-medium mb-2">PHP/MySQL</div>
+                        <h3 class="text-xl font-bold text-primary mb-2">فروشگاه آنلاین</h3>
+                        <p class="text-gray-600 text-sm">فروشگاه آنلاین کامل با سیستم مدیریت محصول، سبد خرید و درگاه
+                            پرداخت</p>
+                    </div>
+                    <div class="px-6 pb-4">
+                        <button class="text-secondary p-0 hover:text-primary bg-transparent">
+                            مشاهده پروژه
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="inline-block ml-2 h-4 w-4">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="overflow-hidden group hover:shadow-lg transition-all duration-300 rounded-lg border border-gray-200">
+                    <div class="relative overflow-hidden h-64">
+                        <img
+                                src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
+                                alt="سیستم مدیریت محتوا"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div class="absolute inset-0 bg-primary/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-secondary text-primary px-3 py-1 rounded text-sm font-medium">
+                                مشاهده جزئیات
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="inline-block ml-2 h-4 w-4">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-secondary font-medium mb-2">PHP/Laravel</div>
+                        <h3 class="text-xl font-bold text-primary mb-2">سیستم مدیریت محتوا</h3>
+                        <p class="text-gray-600 text-sm">CMS سفارشی برای مدیریت محتوای وب‌سایت خبری با رابط کاربری
+                            آسان</p>
+                    </div>
+                    <div class="px-6 pb-4">
+                        <button class="text-secondary p-0 hover:text-primary bg-transparent">
+                            مشاهده پروژه
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="inline-block ml-2 h-4 w-4">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="overflow-hidden group hover:shadow-lg transition-all duration-300 rounded-lg border border-gray-200">
+                    <div class="relative overflow-hidden h-64">
+                        <img
+                                src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
+                                alt="پنل مدیریت"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div class="absolute inset-0 bg-primary/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-secondary text-primary px-3 py-1 rounded text-sm font-medium">
+                                مشاهده جزئیات
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="inline-block ml-2 h-4 w-4">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-secondary font-medium mb-2">PHP/React</div>
+                        <h3 class="text-xl font-bold text-primary mb-2">پنل مدیریت</h3>
+                        <p class="text-gray-600 text-sm">داشبورد اداری با نمودارها و گزارشات آماری برای مدیریت کسب و
+                            کار</p>
+                    </div>
+                    <div class="px-6 pb-4">
+                        <button class="text-secondary p-0 hover:text-primary bg-transparent">
+                            مشاهده پروژه
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="inline-block ml-2 h-4 w-4">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="overflow-hidden group hover:shadow-lg transition-all duration-300 rounded-lg border border-gray-200">
+                    <div class="relative overflow-hidden h-64">
+                        <img
+                                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+                                alt="سیستم رزرواسیون"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div class="absolute inset-0 bg-primary/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-secondary text-primary px-3 py-1 rounded text-sm font-medium">
+                                مشاهده جزئیات
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="inline-block ml-2 h-4 w-4">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-secondary font-medium mb-2">PHP/jQuery</div>
+                        <h3 class="text-xl font-bold text-primary mb-2">سیستم رزرواسیون</h3>
+                        <p class="text-gray-600 text-sm">سیستم رزرو آنلاین با تقویم تعاملی و مدیریت رزروها</p>
+                    </div>
+                    <div class="px-6 pb-4">
+                        <button class="text-secondary p-0 hover:text-primary bg-transparent">
+                            مشاهده پروژه
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="inline-block ml-2 h-4 w-4">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="overflow-hidden group hover:shadow-lg transition-all duration-300 rounded-lg border border-gray-200">
+                    <div class="relative overflow-hidden h-64">
+                        <img
+                                src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
+                                alt="وب اپلیکیشن آموزشی"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div class="absolute inset-0 bg-primary/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <button class="bg-secondary text-primary px-3 py-1 rounded text-sm font-medium">
+                                مشاهده جزئیات
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="inline-block ml-2 h-4 w-4">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-secondary font-medium mb-2">PHP/MySQL</div>
+                        <h3 class="text-xl font-bold text-primary mb-2">وب اپلیکیشن آموزشی</h3>
+                        <p class="text-gray-600 text-sm">پلتفرم آموزش آنلاین با سیستم مدیریت دوره و پخش ویدیو</p>
+                    </div>
+                    <div class="px-6 pb-4">
+                        <button class="text-secondary p-0 hover:text-primary bg-transparent">
+                            مشاهده پروژه
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="inline-block ml-2 h-4 w-4">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="border border-gray-300 hover:border-gray-400 text-gray-700 font-medium px-5 py-3 rounded">
+                    مشاهده تمام پروژه‌ها
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <div class="w-full lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">درباره Center Project</h2>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        ما یک تیم متخصص در زمینه طراحی و توسعه وب‌سایت هستیم که با استفاده از PHP و فناوری‌های مدرن،
+                        راهکارهای مناسب برای کسب‌وکارهای مختلف ارائه می‌دهیم.
+                    </p>
+                    <p class="text-gray-700 mb-8 leading-relaxed">
+                        تخصص ما در برنامه‌نویسی PHP و توسعه وب‌سایت‌های سفارشی، فروشگاه‌های آنلاین، سیستم‌های مدیریت
+                        محتوا و پنل‌های مدیریتی است. ما از آخرین استانداردها و بهترین شیوه‌های صنعت برای ارائه محصولات
+                        با کیفیت بالا استفاده می‌کنیم.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="text-secondary mr-2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span class="text-gray-700">طراحی واکنش‌گرا برای تمام دستگاه‌ها</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="text-secondary mr-2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span class="text-gray-700">کدنویسی بهینه و اصولی PHP</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="text-secondary mr-2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span class="text-gray-700">سرعت بارگذاری بالا و عملکرد عالی</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="text-secondary mr-2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span class="text-gray-700">امنیت بالا و محافظت از حملات سایبری</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="text-secondary mr-2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span class="text-gray-700">بهینه‌سازی برای موتورهای جستجو</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="text-secondary mr-2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span class="text-gray-700">پشتیبانی فنی ۲۴/۷</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/2">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <!-- Stat 1 -->
+                        <div class="text-center py-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                            <div class="mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="text-secondary mx-auto">
+                                    <circle cx="12" cy="8" r="7"></circle>
+                                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                                </svg>
+                            </div>
+                            <div class="text-3xl font-bold text-primary mb-1">+۵۰</div>
+                            <div class="text-gray-600">پروژه موفق</div>
+                        </div>
+
+                        <!-- Stat 2 -->
+                        <div class="text-center py-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                            <div class="mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="text-secondary mx-auto">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div class="text-3xl font-bold text-primary mb-1">+۳۰</div>
+                            <div class="text-gray-600">مشتری راضی</div>
+                        </div>
+
+                        <!-- Stat 3 -->
+                        <div class="text-center py-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                            <div class="mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="text-secondary mx-auto">
+                                    <polyline points="16 18 22 12 16 6"></polyline>
+                                    <polyline points="8 6 2 12 8 18"></polyline>
+                                </svg>
+                            </div>
+                            <div class="text-3xl font-bold text-primary mb-1">+۵</div>
+                            <div class="text-gray-600">سال تجربه</div>
+                        </div>
+                    </div>
+
+                    <div class="relative rounded-xl overflow-hidden shadow-xl">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/80 opacity-90"></div>
+                        <img
+                                src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
+                                alt="Our team"
+                                class="w-full h-full object-cover"
+                        />
+                        <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-8 text-center">
+                            <h3 class="text-2xl font-bold mb-4">آماده‌ی همکاری با شما هستیم</h3>
+                            <p class="mb-6 max-w-md">
+                                با Center Project، وب‌سایت حرفه‌ای و کاربرپسندی داشته باشید که کسب‌وکار شما را به سطح
+                                بالاتری می‌برد.
+                            </p>
+                            <div class="text-lg font-semibold bg-white/20 px-6 py-3 rounded-full backdrop-blur-sm">
+                                ما ایده‌های شما را به واقعیت تبدیل می‌کنیم
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary">نظرات مشتریان</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+                    ما به ارائه بهترین خدمات به مشتریان خود افتخار می‌کنیم. در اینجا می‌توانید نظرات برخی از مشتریان
+                    راضی ما را بخوانید.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="border-none shadow-md hover:shadow-lg transition-shadow rounded-lg">
+                    <div class="p-6">
+                        <div class="flex mb-4">
+                            <!-- 5 stars -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="currentColor" class="text-yellow-400 h-4 w-4">
+                                <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="currentColor" class="text-yellow-400 h-4 w-4">
+                                <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="currentColor" class="text-yellow-400 h-4 w-4">
+                                <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="currentColor" class="text-yellow-400 h-4 w-4">
+                                <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="currentColor" class="text-yellow-400 h-4 w-4">
+                                <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 mb-6 italic">"همکاری با تیم Center Project تجربه بسیار خوبی بود. آنها
+                            فروشگاه آنلاین ما را با کیفیت بالا طراحی کردند و همیشه در دسترس و پاسخگو بودند."</p>
+                        <div class="flex items-center">
+                            <div class="bg-secondary/20 text-secondary font-bold rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                ز
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary">زهره</h4>
+                                <p class="text-gray-600 text-sm">فروشگاه آنلاین دریتا</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-sm-12 mh-copyright">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="text-right text-xs-center">
-                                <p>
-                                    همه حقوق برای <a href="http://centerproject.ir">مرکز پروژه‌ها</a> محفوظ می‌باشد.
-                                    |
-                                    <a href="http://cvresumetemplate.com" target="_blank">
-                                        قالب
-                                    </a>
-                                </p>
-                            </div>
+                <!-- Testimonial 2 -->
+                <div class="border-none shadow-md hover:shadow-lg transition-shadow rounded-lg">
+                    <div class="p-6">
+                        <div class="flex mb-4">
+                            <!-- 5 stars -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="currentColor" class="text-yellow-400 h-4 w-4">
+                                <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="currentColor" class="text-yellow-400 h-4 w-4">
+                                <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="currentColor" class="text-yellow-400 h-4 w-4">
+                                <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="currentColor" class="text-yellow-400 h-4 w-4">
+                                <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="currentColor" class="text-yellow-400 h-4 w-4">
+                                <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
                         </div>
-                        <div class="col-sm-6">
-                            <ul class="social-icon">
-                                <li>
-                                    <a href="https://github.com/ialireza">
-                                        <i class="fa fa-github"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://github.com/centerproject">
-                                        <i class="fa fa-github"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://t.me/centerproject">
-                                        <i class="fa fa-telegram"></i>
-                                    </a>
-                                </li>
-                            </ul>
+                        <p class="text-gray-700 mb-6 italic">"ما از خدمات طراحی سایت Center Project بسیار راضی هستیم.
+                            آنها سایتی حرفه‌ای و مطابق با نیازهای ما طراحی کردند که باعث افزایش بازدید و فروش ما شده
+                            است."</p>
+                        <div class="flex items-center">
+                            <div class="bg-secondary/20 text-secondary font-bold rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                س
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary">سارا</h4>
+                                <p class="text-gray-600 text-sm">شرکت خدمات مالی</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Testimonial 3 -->
+                <div class="border-none shadow-md hover:shadow-lg transition-shadow rounded-lg">
+                    <div class="p-6">
+                        <div class="flex mb-4">
+                            <!-- 4 stars -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="currentColor" class="text-yellow-400 h-4 w-4">
+                                <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="currentColor" class="text-yellow-400 h-4 w-4">
+                                <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="currentColor" class="text-yellow-400 h-4 w-4">
+                                <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="currentColor" class="text-yellow-400 h-4 w-4">
+                                <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="text-gray-300 h-4 w-4">
+                                <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 mb-6 italic">"من سیستم رزرواسیون آنلاین برای آژانس مسافرتی خود نیاز
+                            داشتم و Center Project دقیقاً همان چیزی که می‌خواستم را با بهترین کیفیت ارائه داد."</p>
+                        <div class="flex items-center">
+                            <div class="bg-secondary/20 text-secondary font-bold rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                م
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary">محمد</h4>
+                                <p class="text-gray-600 text-sm">آژانس مسافرتی</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="border-none shadow-md hover:shadow-lg transition-shadow rounded-lg">
+                    <div class="p-6">
+                        <div class="flex mb-4">
+                            <!-- 5 stars -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="currentColor" class="text-yellow-400 h-4 w-4">
+                                <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="currentColor" class="text-yellow-400 h-4 w-4">
+                                <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="currentColor" class="text-yellow-400 h-4 w-4">
+                                <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="currentColor" class="text-yellow-400 h-4 w-4">
+                                <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                 fill="currentColor" class="text-yellow-400 h-4 w-4">
+                                <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 mb-6 italic">"وب اپلیکیشن آموزشی که تیم Center Project برای ما طراحی
+                            کرد، کار ما را بسیار آسان کرده و بازخورد دانش‌آموزان ما نیز بسیار مثبت بوده است."</p>
+                        <div class="flex items-center">
+                            <div class="bg-secondary/20 text-secondary font-bold rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                ا
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary">امیر محمد</h4>
+                                <p class="text-gray-600 text-sm">مؤسسه آموزشی</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary">تماس با ما</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+                    برای مشاوره رایگان، درخواست قیمت یا هر سوال دیگری با ما در تماس باشید. ما آماده پاسخگویی به شما
+                    هستیم.
+                </p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="w-full lg:w-1/2">
+                    <div class="border-none shadow-md p-6 rounded-lg">
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label for="name" class="block text-sm font-medium text-gray-700">
+                                        نام و نام خانوادگی
+                                    </label>
+                                    <input
+                                            id="name"
+                                            placeholder="نام خود را وارد کنید"
+                                            class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary"
+                                    />
+                                </div>
+                                <div class="space-y-2">
+                                    <label for="email" class="block text-sm font-medium text-gray-700">
+                                        ایمیل
+                                    </label>
+                                    <input
+                                            id="email"
+                                            type="email"
+                                            placeholder="ایمیل خود را وارد کنید"
+                                            class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label for="subject" class="block text-sm font-medium text-gray-700">
+                                    موضوع
+                                </label>
+                                <input
+                                        id="subject"
+                                        placeholder="موضوع پیام خود را وارد کنید"
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary"
+                                />
+                            </div>
+
+                            <div class="space-y-2">
+                                <label for="message" class="block text-sm font-medium text-gray-700">
+                                    پیام
+                                </label>
+                                <textarea
+                                        id="message"
+                                        placeholder="پیام خود را بنویسید..."
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-secondary min-h-32"
+                                ></textarea>
+                            </div>
+
+                            <button type="submit"
+                                    class="w-full bg-secondary hover:bg-secondary/90 text-white px-4 py-2 rounded">
+                                ارسال پیام
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="ml-2 h-4 w-4 inline-block">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/2">
+                    <div class="h-full flex flex-col justify-between">
+                        <div class="mb-8">
+                            <h3 class="text-2xl font-bold text-primary mb-6">اطلاعات تماس</h3>
+                            <p class="text-gray-600 mb-8 leading-relaxed">
+                                می‌توانید از طریق راه‌های ارتباطی زیر با ما در تماس باشید. تیم ما در اسرع وقت به درخواست
+                                شما پاسخ خواهد داد.
+                            </p>
+
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="bg-secondary/10 p-3 rounded-full mr-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round" class="text-secondary">
+                                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                            <polyline points="22,6 12,13 2,6"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900">ایمیل</h4>
+                                        <p class="text-gray-600 mt-1">alireza.mohammadi.1990@gmail.com</p>
+                                        <p class="text-gray-600">info@centerproject.com</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <div class="bg-secondary/10 p-3 rounded-full mr-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round" class="text-secondary">
+                                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900">تلفن تماس</h4>
+                                        <p class="text-gray-600 mt-1">0936-944-6711</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <div class="bg-secondary/10 p-3 rounded-full mr-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round" class="text-secondary">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                            <circle cx="12" cy="10" r="3"></circle>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900">آدرس</h4>
+                                        <p class="text-gray-600 mt-1"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rounded-xl overflow-hidden h-64 shadow-md">
+                            <!-- This would be a map in a real implementation -->
+                            <div class="h-full bg-gray-200 flex items-center justify-center">
+                                <div class="text-center p-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                         stroke-linejoin="round" class="text-secondary mx-auto mb-3">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    <p class="text-gray-700 font-medium">موقعیت ما بر روی نقشه</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-primary text-white pt-16 pb-8">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            <div>
+                <h3 class="text-xl font-bold mb-4">Center<span class="text-secondary">Project</span></h3>
+                <p class="text-gray-300 mb-6">
+                    ارائه‌دهنده خدمات طراحی و توسعه وب‌سایت با استفاده از تکنولوژی PHP و فریم‌ورک‌های مدرن
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-secondary transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-secondary transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-secondary transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-secondary transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-secondary transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-lg font-bold mb-4">خدمات</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">طراحی سایت</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">توسعه PHP</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">پایگاه داده MySQL</a>
+                    </li>
+                    <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">بهینه‌سازی SEO</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">طراحی واکنش‌گرا</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-lg font-bold mb-4">دسترسی سریع</h3>
+                <ul class="space-y-2">
+                    <li><a href="#home" class="text-gray-300 hover:text-secondary transition-colors">خانه</a></li>
+                    <li><a href="#services" class="text-gray-300 hover:text-secondary transition-colors">خدمات</a></li>
+                    <li><a href="#portfolio" class="text-gray-300 hover:text-secondary transition-colors">نمونه
+                        کارها</a></li>
+                    <li><a href="#about" class="text-gray-300 hover:text-secondary transition-colors">درباره ما</a></li>
+                    <li><a href="#contact" class="text-gray-300 hover:text-secondary transition-colors">تماس با ما</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-lg font-bold mb-4">تماس با ما</h3>
+                <ul class="space-y-2">
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             class="text-secondary mr-2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span class="text-gray-300">alireza.mohammadi.1990@gmail.com</span>
+                    </li>
+                    <li class="text-gray-300">0936-944-6711</li>
+                    <li class="text-gray-300">ایران، استان فارس</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-700 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    © <span id="current-year"></span> Center Project. تمامی حقوق محفوظ است.
+                </p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-secondary text-sm">شرایط استفاده</a>
+                    <a href="#" class="text-gray-400 hover:text-secondary text-sm">حریم خصوصی</a>
+                    <a href="#" class="text-gray-400 hover:text-secondary text-sm">سوالات متداول</a>
+                </div>
             </div>
         </div>
     </div>
 </footer>
-<!--<script src="https://kit.fontawesome.com/6da24974d6.js?v=0.1" crossorigin="anonymous"></script>-->
-<!-- jQuery -->
-<script src="assets/plugins/js/jquery.min.js?v=0.1"></script>
-<!-- popper -->
-<!--<script src="http://cvresumetemplate.com/maha-personal-cv-resume-html-template/assets/plugins/js/popper.min.js?v=0.1"></script>-->
-<!-- bootstrap -->
-<script src="assets/plugins/js/bootstrap.min.js?v=0.1"></script>
-<!-- owl carousel -->
-<script src="assets/plugins/js/owl.carousel.js?v=0.1"></script>
-<!-- validator -->
-<script src="assets/plugins/js/validator.min.js?v=0.1"></script>
-<!-- wow -->
-<script src="assets/plugins/js/wow.min.js?v=0.1"></script>
-<!-- mixin js-->
-<script src="assets/plugins/js/jquery.mixitup.min.js?v=0.1"></script>
-<!-- circle progress-->
-<script src="assets/plugins/js/circle-progress.js?v=0.1"></script>
-<!-- jquery nav -->
-<script src="assets/plugins/js/jquery.nav.js?v=0.1"></script>
-<!-- Fancybox js-->
-<script src="assets/plugins/js/jquery.fancybox.min.js?v=0.1"></script>
-<!-- isotope js-->
-<script src="assets/plugins/js/isotope.pkgd.js?v=0.1"></script>
-<script src="assets/plugins/js/packery-mode.pkgd.js?v=0.1"></script>
-<!-- Custom Scripts-->
-<script src="assets/js/map-init.js?v=0.1"></script>
-<script src="assets/js/custom-scripts.js?v=0.1"></script>
 
+<script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.querySelector('.menu-icon');
+        const xIcon = document.querySelector('.x-icon');
+
+        if (menuButton && mobileMenu) {
+            menuButton.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+                menuIcon.classList.toggle('hidden');
+                xIcon.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when clicking on a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('hidden');
+                    xIcon.classList.add('hidden');
+                });
+            });
+        }
+
+        // Set current year in footer
+        const currentYearElement = document.getElementById('current-year');
+        if (currentYearElement) {
+            currentYearElement.textContent = new Date().getFullYear();
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>
